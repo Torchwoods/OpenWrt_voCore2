@@ -14,7 +14,7 @@ define KernelPackage/sdhci-mt7620
   KCONFIG:= \
 	CONFIG_MTK_MMC \
 	CONFIG_MTK_AEE_KDUMP=n \
-	CONFIG_MTK_MMC_CD_POLL=n
+	CONFIG_MTK_MMC_CD_POLL=y
   FILES:= \
 	$(LINUX_DIR)/drivers/mmc/host/mtk-mmc/mtk_sd.ko
   AUTOLOAD:=$(call AutoProbe,mtk_sd,1)
@@ -80,13 +80,14 @@ define KernelPackage/sound-mt7628
   TITLE:=MT7628 ALSA Driver
   DEPENDS:=@TARGET_ramips_mt7628 +kmod-sound-soc-core +kmod-regmap 
   KCONFIG:= \
-        CONFIG_SND_MT7628_SOC_I2S \
-        CONFIG_SND_MT7628_SOC_AUDIO
+	CONFIG_SND_MT7628_SOC_I2S \
+	CONFIG_SND_MT7628_SOC_AUDIO \
+	CONFIG_SND_SOC_ES8388
   FILES:= \
         $(LINUX_DIR)/sound/soc/ralink/snd-soc-mt7628-i2s.ko \
         $(LINUX_DIR)/sound/soc/ralink/snd-soc-mt7628-audio.ko \
-	$(LINUX_DIR)/sound/soc/codecs/snd-soc-wm8960.ko
-  AUTOLOAD:=$(call AutoLoad,90,snd-soc-wm8960 snd-soc-mt7628-i2s snd-soc-mt7628-audio)
+	$(LINUX_DIR)/sound/soc/codecs/snd-soc-es8388.ko
+  AUTOLOAD:=$(call AutoLoad,90,snd-soc-es8388 snd-soc-mt7628-i2s snd-soc-mt7628-audio)
   $(call AddDepends/sound)
 endef
 
