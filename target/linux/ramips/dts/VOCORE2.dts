@@ -46,7 +46,6 @@
 				partition@0 {
 					label = "u-boot";
 					reg = <0x0 0x30000>;
-					read-only;
 				};
 
 				partition@30000 {
@@ -57,7 +56,6 @@
 				factory: partition@40000 {
 					label = "factory";
 					reg = <0x40000 0x10000>;
-					read-only;
 				};
 
 				partition@50000 {
@@ -105,6 +103,7 @@
 	};
 
 	sdhci@10130000 {
+		mediatek,cd-poll;
 		status = "okay";
 	};
 };
