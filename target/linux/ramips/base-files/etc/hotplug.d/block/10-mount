@@ -1,0 +1,11 @@
+case "$ACTION" in
+  add)
+    /sbin/block detect > /etc/config/fstab
+    /sbin/block mount
+    sleep 1
+    ;;
+  remove)
+    sleep 1
+    rm -rf /mnt/sd* /mnt/mmc*
+    ;;
+esac
