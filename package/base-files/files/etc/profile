@@ -21,3 +21,8 @@ export PS1='\u@\h:\w\$ '
 	done
 	unset FILE
 }
+
+[ -f /etc/hotplug.d/block/10-mount ] || {
+	/sbin/block detect > /etc/config/fstab
+    	/sbin/block mount
+}

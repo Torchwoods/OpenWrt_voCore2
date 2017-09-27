@@ -82,7 +82,7 @@ define KernelPackage/sound-mt7628
   KCONFIG:= \
 	CONFIG_SND_MT7628_SOC_I2S \
 	CONFIG_SND_MT7628_SOC_AUDIO \
-	CONFIG_SND_SOC_ES8388
+	CONFIG_SND_SOC_ES8388=m
   FILES:= \
         $(LINUX_DIR)/sound/soc/ralink/snd-soc-mt7628-i2s.ko \
         $(LINUX_DIR)/sound/soc/ralink/snd-soc-mt7628-audio.ko \

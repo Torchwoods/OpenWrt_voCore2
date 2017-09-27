@@ -91,7 +91,7 @@ CONFIGURE_ARGS += \
 	--exec-prefix=/usr \
 	--prefix=/ \
 	--disable-avahi \
-	--with-cups \
+	--disable-cups \
 	--disable-pie \
 	--disable-relro \
 	--disable-static \

@@ -213,7 +213,7 @@ set network.lan.ifname='$ifname'
 set network.lan.force_link=1
 set network.lan.type='bridge'
 set network.lan.proto='static'
-set network.lan.ipaddr='192.168.1.1'
+set network.lan.ipaddr='192.168.61.1'
 set network.lan.netmask='255.255.255.0'
 set network.lan.ip6assign='60'
 EOF
@@ -238,6 +238,7 @@ ucidef_set_interfaces_lan_wan() {
 
 	ucidef_set_interface_lan "$lan_ifname"
 	ucidef_set_interface_wan "$wan_ifname"
+	ucidef_set_interface_raw "wwan" "wwan" "dhcp"
 }
 
 ucidef_set_interface_macaddr() {

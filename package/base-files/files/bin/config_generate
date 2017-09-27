@@ -53,7 +53,7 @@ EOF
 	lan) uci -q batch <<EOF
 set network.$1.type='bridge'
 set network.$1.proto='static'
-set network.$1.ipaddr='192.168.1.1'
+set network.$1.ipaddr='192.168.61.1'
 set network.$1.netmask='255.255.255.0'
 set network.$1.ip6assign='60'
 EOF
@@ -64,6 +64,9 @@ delete network.wan6
 set network.wan6='interface'
 set network.wan6.ifname='$ifname'
 set network.wan6.proto='dhcpv6'
+delete network.wwan
+set network.wwan='interface'
+set network.wwan.proto='dhcp'
 EOF
 		;;
 	esac

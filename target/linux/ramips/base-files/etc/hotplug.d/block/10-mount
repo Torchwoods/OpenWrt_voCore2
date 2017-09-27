@@ -6,7 +6,6 @@ case "$ACTION" in
     ;;
   remove)
     sleep 1
-    rm -rf /mnt/sd* /mnt/mmc* 2> /dev/null
+    rm -rf /mnt/sd* /mnt/mmc*
     ;;
 esac
-
