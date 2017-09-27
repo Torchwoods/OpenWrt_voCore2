@@ -6,8 +6,8 @@
  
 +static ssize_t m25p80_fid(struct device *dev, struct device_attribute *attr, char *buf)
 +{
-+	const struct spi_device *spi = to_spi_device(dev);
-+	u8 code[5] = {0}, fid[8];dev_attr_fid
++	struct spi_device *spi = to_spi_device(dev);
++	u8 code[5] = {0}, fid[8];
 +
 +	code[0] = 0x4b;
 +	if (spi_write_then_read(spi, &code, 5, fid, 8) < 0)
